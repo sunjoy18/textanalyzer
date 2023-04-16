@@ -118,6 +118,7 @@ textarea:focus {
 }
 .side {
   height: 12rem;
+  
   background-color: #fcfcf8;
   outline: 1px solid transparent;
 }

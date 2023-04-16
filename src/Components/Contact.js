@@ -9,7 +9,7 @@ function Contact() {
   return (    
     <div className='contact'> 
         <small>Enter message (optional) and click button "Send"</small>
-        <form action="mailto:sanjayguptasarvjeet342@gmail.com" method="post" enctype="text/plain">
+        <form action="mailto:sanjayguptasarvjeet342@gmail.com" method="post" encType="text/plain">
             <div className="wrapper centered">
             <article className="letter">
                 <div className="side">
@@ -35,6 +35,7 @@ function Contact() {
             </div>
         </form>
         <p className="result-message centered">Thank you for your message</p>
+        hii
     </div>
   )
 }
