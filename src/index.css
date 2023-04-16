@@ -103,7 +103,7 @@ textarea:focus {
   outline: none;
 }
 .wrapper {
-  /* width: 35rem; */
+  max-width: 35rem;
   background-color: white;
   position: absolute;
   display: inline-block;
@@ -113,7 +113,6 @@ textarea:focus {
   left: 0;
   right: 0;
   top: 0;
-  /* width: 30rem; */
   margin: auto;
   perspective: 60rem;
 }
