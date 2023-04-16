@@ -65,19 +65,6 @@ export default function TextForm(props) {
     setText(event.target.value);
   }
 
-  function word(text)
-  {
-    
-    if(text.length === 0)
-    {
-      return 0;
-    }
-    else
-    {
-      return text.split(" ").length;
-    }
-  }
-
   let a = handleBlank();
   let s = handleSpace();
 
