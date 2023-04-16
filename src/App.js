@@ -51,9 +51,9 @@ function App(props) {
             <br />
             <Alert alert = {alert}/>
             <Routes>   
-              <Route  exact path="/textanalyzer/about" element={<About mode={mode} /> } />
-              <Route exact path="/textanalyzer" element={<TextForm mode={mode} showAlert={showAlert}/>} />
-              <Route  exact path="/textanalyzer/contact" element={<Contact/>} />
+              <Route  exact path="/about" element={<About mode={mode} /> } />
+              <Route exact path="/" element={<TextForm mode={mode} showAlert={showAlert}/>} />
+              <Route  exact path="/contact" element={<Contact/>} />
             </Routes>
           </div>
       </Router>
