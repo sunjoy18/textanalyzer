@@ -28,7 +28,34 @@ export default function TextForm(props) {
     setText("");
     props.showAlert("Cleared!","success")
   }
- 
+  
+  const handleBlank = () => {
+    var blank = text.length; 
+    if(blank === 0)
+    {
+      return(blank);
+    }
+    else{
+      let word = text.split(" ");
+      word = word.filter(function(entry) { return entry.trim() !== ''; });
+      return(word.length);
+    }
+  }
+
+  const handleSpace = () => {
+    let c = 0; 
+    let word = text;
+    for (let i = 0; i < word.length; i++) {
+      if (word[i] === " ") {
+        continue;
+      }
+      else{
+        c += 1;
+      }
+    }
+    return(c);
+  }
+
   const handleExtraSpace = () =>{
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
@@ -50,13 +77,17 @@ export default function TextForm(props) {
       return text.split(" ").length;
     }
   }
+
+  let a = handleBlank();
+  let s = handleSpace();
+
   return (
     <div className='/'>
     <br />
       <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
           <h1>{props.heading}  </h1>
           <div className="mb-3">              
-              <textarea className="form-control" id="myBox" rows="8" style={{backgroundColor: props.mode==='dark'?'#fffae4':'white', color: props.mode==='dark'?'white':'black'}} value={text} onChange={handleOnChange}></textarea>
+              <textarea className="form-control" id="myBox" rows="8" style={{backgroundColor: props.mode==='dark'?'#fffae4':'white'}} value={text} onChange={handleOnChange}></textarea>
               <br />
               <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
               <button className="btn btn-primary mx-2" onClick={handleDownClick}>Convert to LowerCase</button>
@@ -67,10 +98,10 @@ export default function TextForm(props) {
       </div>
       <div className="container" style={{color : props.mode === 'dark'?'white' : 'black'}}>
         <h2>Your Text Summary</h2>
-        <p>{word(text)} words & {text.length} characters.</p>
-        <p>{0.008 * text.split(" ").length} Minutes Read</p>
+        <p>{a} words and {s} characters.</p>
+        <p>{0.008 * a.split(" ").length} Minutes Read</p>
         <h2>Preview : </h2>
-        <p>{text.length>0?text:"Enter text above to preview it here."}</p>
+        <p>{a.length>0?text:"Enter text above to preview it here."}</p>
       </div>
     </div>
   )
