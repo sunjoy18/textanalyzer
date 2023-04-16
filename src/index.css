@@ -103,15 +103,17 @@ textarea:focus {
   outline: none;
 }
 .wrapper {
-  width: 35rem;
+  /* width: 35rem; */
   background-color: white;
+  position: absolute;
+  display: inline-block;
 }
 .letter {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  width: 30rem;
+  /* width: 30rem; */
   margin: auto;
   perspective: 60rem;
 }
@@ -273,13 +275,3 @@ textarea:focus {
 }
 */
 
-.preview textarea {
-  width: 500px;
-  min-height: 100px;
-  padding: 8px;
-  font-size: 18px;
-  resize: none;
-  border: solid 1px;
-  border-radius: 4px;
-  outline: none;
-}

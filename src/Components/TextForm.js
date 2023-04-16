@@ -1,4 +1,4 @@
-import React, {useRef, useState, ChangeEvent} from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
 export default function TextForm(props) {
@@ -68,13 +68,7 @@ export default function TextForm(props) {
   let a = handleBlank();
   let s = handleSpace();
 
-  const ref = useRef(HTMLTextAreaElement | null);
-  const handleInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    if (ref.current) {
-      ref.current.style.height = "auto";
-      ref.current.style.height = `${e.target.scrollHeight - 16}px`;
-    }
-  };
+  
 
   return (
     <div className='/'>
@@ -95,17 +89,10 @@ export default function TextForm(props) {
         <h2>Your Text Summary</h2>
         <p>{a} words and {s} characters.</p>
         <p>{0.008 * text.split(" ").length} Minutes Read</p>
-        <h2>Preview : </h2>
-        {/* <p>{text.length>0?text:"Enter text above to preview it here."}</p> */}
-        <div className="preview">
+        <h2>Preview : </h2>        
+        <div className="container">
           <section>
-            <textarea 
-              style={{backgroundColor: props.mode==='dark'?'#fffae4':'white'}}
-              ref={ref}
-              rows={1}
-              placeholder={text.length>0?text:"Enter text above to preview it here."}
-              onInput={handleInput}
-            />
+            <textarea className="form-control" placeholder={text.length>0?text:"Enter text above to preview it here."} />
           </section>
         </div>
       </div>

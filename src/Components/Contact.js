@@ -13,21 +13,21 @@ function Contact() {
             <div className="wrapper centered">
             <article className="letter">
                 <div className="side">
-                <h1>Contact us</h1>
-                <p>
-                    <textarea placeholder="Your message" name='Message'></textarea>
-                </p>
+                    <h1>Contact us</h1>
+                    <p>
+                        <textarea placeholder="Your message" name='Message'></textarea>
+                    </p>
                 </div>
                 <div className="side">
-                <p>
-                    <input type="text" placeholder="Your name" name='Name'/>
-                </p>
-                <p>
-                    <input type="tel" size="13" placeholder="Your contact" name="Contact"/>
-                </p>
-                <p>
-                    <button id="sendLetter" onClick={sentLetter}>Send</button>
-                </p>
+                    <p>
+                        <input type="text" placeholder="Your name" name='Name'/>
+                    </p>
+                    <p>
+                        <input type="tel" size="13" placeholder="Your contact" name="Contact"/>
+                    </p>
+                    <p>
+                        <button id="sendLetter" onClick={sentLetter}>Send</button>
+                    </p>
                 </div>
             </article>
             <div className="envelope front"></div>
