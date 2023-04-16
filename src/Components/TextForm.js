@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useRef, useState, ChangeEvent} from 'react'
 import PropTypes from 'prop-types'
 
 export default function TextForm(props) {
@@ -68,6 +68,14 @@ export default function TextForm(props) {
   let a = handleBlank();
   let s = handleSpace();
 
+  const ref = useRef(HTMLTextAreaElement | null);
+  const handleInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    if (ref.current) {
+      ref.current.style.height = "auto";
+      ref.current.style.height = `${e.target.scrollHeight - 16}px`;
+    }
+  };
+
   return (
     <div className='/'>
     <br />
@@ -76,11 +84,11 @@ export default function TextForm(props) {
           <div className="mb-3">              
               <textarea className="form-control" id="myBox" rows="8" style={{backgroundColor: props.mode==='dark'?'#fffae4':'white'}} value={text} onChange={handleOnChange}></textarea>
               <br />
-              <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
-              <button className="btn btn-primary mx-2" onClick={handleDownClick}>Convert to LowerCase</button>
-              <button className="btn btn-primary mx-2" onClick={copyIt}>Copy Text</button>
-              <button className="btn btn-primary mx-2" onClick={clearIt}>Clear Text</button>
-              <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>Remove Ex-Space</button>
+              <button className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>Convert to UpperCase</button>
+              <button className="btn btn-primary mx-2 my-1" onClick={handleDownClick}>Convert to LowerCase</button>
+              <button className="btn btn-primary mx-2 my-1" onClick={copyIt}>Copy Text</button>
+              <button className="btn btn-primary mx-2 my-1" onClick={clearIt}>Clear Text</button>
+              <button className="btn btn-primary mx-2 my-1" onClick={handleExtraSpace}>Remove Ex-Space</button>
           </div>
       </div>
       <div className="container" style={{color : props.mode === 'dark'?'white' : 'black'}}>
@@ -88,7 +96,18 @@ export default function TextForm(props) {
         <p>{a} words and {s} characters.</p>
         <p>{0.008 * text.split(" ").length} Minutes Read</p>
         <h2>Preview : </h2>
-        <p>{text.length>0?text:"Enter text above to preview it here."}</p>
+        {/* <p>{text.length>0?text:"Enter text above to preview it here."}</p> */}
+        <div className="preview">
+          <section>
+            <textarea 
+              style={{backgroundColor: props.mode==='dark'?'#fffae4':'white'}}
+              ref={ref}
+              rows={1}
+              placeholder={text.length>0?text:"Enter text above to preview it here."}
+              onInput={handleInput}
+            />
+          </section>
+        </div>
       </div>
     </div>
   )

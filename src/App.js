@@ -9,8 +9,7 @@ import Contact from './Components/Contact';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 
@@ -45,7 +44,7 @@ function App(props) {
   return (
     <>    
       <Router basename='/textanalyzer'>
-          <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+          <Navbar title="TextAnalyzer" mode={mode} toggleMode={toggleMode} />
             
           <div className="container my-5">
             <br />
