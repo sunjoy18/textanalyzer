@@ -35,7 +35,6 @@ function Contact() {
             </div>
         </form>
         <p className="result-message centered">Thank you for your message</p>
-        hii
     </div>
   )
 }
